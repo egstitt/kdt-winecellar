@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Wine Cellar - Wines{% endblock %}
+
+{% block content %}
+Wines List 
+    {% if winery_id %}
+        <a href="/services/wines/winery/{{ winery_id }}">serialize all</a>
+    {% else %}
+        <a href="/services/wines/list/">serialize all</a>
+    {% endif %}
+
+<table>
+    {% for wine in wines %}
+        <tr>
+            <td>{{ wine.wine_type }}</td>
+            <td>{{ wine.vintage }}</td>
+            <td>
+                <a href="/services/wines/{{ wine.id }}">serialize wine</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

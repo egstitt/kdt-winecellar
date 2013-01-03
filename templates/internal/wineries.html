@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Wine Cellar - Wineries{% endblock %}
+
+{% block content %}
+Wineries List <a href="/services/wineries/list">serialize all</a>
+
+<table>
+    {% for winery in wineries %}
+        <tr>
+            <td>{{ winery.name }}</td>
+            <td>
+                <a href="/internal/wines/winery/{{ winery.id }}">view wines</a>
+                |
+                <a href="/services/wineries/{{ winery.id }}">serialize winery</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
